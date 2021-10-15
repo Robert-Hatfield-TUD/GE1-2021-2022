@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Text;
 
 public class AITank : MonoBehaviour {
 
+
+    private static StringBuilder message = new StringBuilder();
     public float radius = 10;
     public int numWaypoints = 5;
     public int current = 0;
     public List<Vector3> waypoints = new List<Vector3>();
     public float speed = 10;
     public Transform player;    
+
+     public Transform target;
 
     public void OnDrawGizmos()
     {
@@ -26,6 +30,16 @@ public class AITank : MonoBehaviour {
                 Gizmos.DrawWireSphere(pos, 1); 
             }
 
+        }
+    }
+
+    public void OnGUI()
+    {
+        GUI.color = Color.white;
+        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "" + message);
+        if (Event.current.type == EventType.Repaint)
+        {
+            message.Length = 0;
         }
     }
 

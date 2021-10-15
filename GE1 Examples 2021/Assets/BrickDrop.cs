@@ -8,6 +8,7 @@ public class BrickDrop : MonoBehaviour
     System.Collections.IEnumerator Drop()
     {
         int maxCount = 5;
+        
         while(true)
         {
             
